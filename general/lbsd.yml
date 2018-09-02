@@ -28,14 +28,15 @@ services:
   consul:
     image: progrium/consul
     command: -server -bootstrap -log-level debug -ui-dir /ui
-    ports:
-      - "8400:8400"
-      - "8500:8500"
-      - "8600:53/udp"
     networks:
       - proxy
     deploy:
       replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.frontend.passHostHeader=true"
+        - "traefik.frontend.rule=Host:consul.local"
+        - "traefik.port=8500"
       placement:
         constraints: [node.role == manager]
 

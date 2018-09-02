@@ -31,7 +31,3 @@ entryPoint = "http"
 endpoint = "consul:8500"
 watch = true
 prefix = "traefik"
-
-[consulCatalog]
-endpoint = "consul:8500"
-domain = "mydomain.com"

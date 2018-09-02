@@ -10,7 +10,7 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.frontend.passHostHeader=true"
-        - "traefik.frontend.rule=Host:testing.traefik.local"
+        - "traefik.frontend.rule=Host:whoami.local"
         - "traefik.port=80"
 networks:
   lbsd_proxy:
