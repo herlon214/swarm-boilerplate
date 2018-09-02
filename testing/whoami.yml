@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  whoami1:
+    image: emilevauge/whoami
+    networks:
+      - lbsd_proxy
+    deploy:
+      replicas: 4
+      labels:
+        - "traefik.enable=true"
+        - "traefik.frontend.passHostHeader=true"
+        - "traefik.frontend.rule=Host:testing.traefik.local"
+        - "traefik.port=80"
+networks:
+  lbsd_proxy:
+    external:
+      name: lbsd_proxy
